@@ -1,0 +1,78 @@
+examples:
+  - id: start-quarter-filing
+    title:
+      zh: 开始本季度报税
+      en: Start Quarterly Filing
+    description:
+      zh: 触发整季自动驾驶：下票→落账→出报表→逐张操作卡
+      en: Run the whole quarter - download invoices, book the ledger, generate reports and per-form operation cards
+    prompt:
+      zh: |-
+        开始报税。公司：{{公司全称}}，本次申报属期：{{如 2026 年第三季度}}。
+        请先确认是否在申报窗口内，再按「下载发票 → 台账落账 → 生成报表 → 逐张出操作卡」的顺序推进。
+        填表和提交由我本人在电子税务局完成，你只给我核对好的数字和操作卡；涉及改数先回落本地账套一致再提交。
+      en: |-
+        Start tax filing. Company: {{full company name}}, period: {{e.g. 2026 Q3}}.
+        First confirm we are inside the filing window, then proceed in order: download invoices -> book the ledger -> generate reports -> produce one operation card per form.
+        I will fill and submit at the e-Tax bureau myself; give me only the verified figures and operation cards.
+  - id: download-invoices
+    title:
+      zh: 下载本季度发票
+      en: Download Quarterly Invoices
+    description:
+      zh: 通过 CDP 从税务数字账户拉取开具/取得发票并入账
+      en: Pull issued and received invoices from the tax digital account via CDP and book them
+    prompt:
+      zh: |-
+        下载 {{公司全称}} {{属期，如 2026 年第三季度}} 的发票。
+        用已登录的 etax 浏览器：税务数字账户→全量发票查询→清空开票日期起止→开具、取得各查一次。
+        红冲发票走红字发票记录核实，红蓝配对净零不入账并在 memo 披露；下载后按 {no,date,item,amount,tax,total,party,rate,special} 落账。
+      en: |-
+        Download invoices for {{full company name}} {{period, e.g. 2026 Q3}}.
+        Using the logged-in etax browser: tax digital account -> full invoice query -> clear the date range -> query issued and received once each.
+        Verify red-offset invoices via the red-invoice records; matched red/blue pairs net to zero and are disclosed in memo.
+  - id: setup-ledger-baseline
+    title:
+      zh: 首次建账套与基线采集
+      en: First-time Ledger & Baseline
+    description:
+      zh: 新建账套并一次性采集申报历史、可弥补亏损、财报年初数
+      en: Create the ledger and collect filing history, carry-forward losses and opening balances once
+    prompt:
+      zh: |-
+        帮 {{公司全称}}（税号 {{统一社会信用代码}}，小规模按季，企业所得税查账征收，个税 {{法人一人零申报/其他}}）建立账套并做基线采集。
+        先问我：由你代建账套，还是我自己在无双报税里建（隐私）。
+        基线：申报信息查询（起=年初）→A100000 详情页导出→读 A106000 可结转亏损→资产负债表年初数（未分配利润/实缴/货币资金/股东垫资 plug），与我的银行截图核对。
+      en: |-
+        Set up the ledger for {{full company name}} (tax ID {{USCC}}, small-scale quarterly, corporate income on audit basis, IIT {{sole-legal-rep zero filing / other}}) and collect the baseline once.
+        First ask whether you build the ledger or I build it myself (privacy).
+        Baseline: filing-history query -> A100000 detail export -> read A106000 carry-forward loss -> opening balances reconciled against my bank screenshot.
+  - id: generate-financial-reports
+    title:
+      zh: 生成财务报表与导入模板
+      en: Generate Financial Reports & Import Template
+    description:
+      zh: 产出资产负债表/利润表并生成官方财报导入模板
+      en: Produce the balance sheet and income statement and build the official financial-report import template
+    prompt:
+      zh: |-
+        为 {{公司全称}} 生成 {{属期}} 的财务报表，并导出电子税务局可导入的官方财报模板到 报表/ 文件夹。
+        校验规则「本年累计=本期+本年上期累计」逐行比对税局预填数；分差用账套 cwbb.plx 已报送值；首报无历史财报时按基线年初数落数。
+      en: |-
+        Generate financial reports for {{full company name}} {{period}} and export the official import template to the reports folder.
+        Validate "year-to-date = current + prior year-to-date" line by line against the bureau's prefill; pin differences to the reported values.
+  - id: build-operation-card
+    title:
+      zh: 生成某张表的操作卡
+      en: Build an Operation Card for a Form
+    description:
+      zh: 针对单张申报表给出入口路径、逐格数值、坑与校验点
+      en: For one filing form, give the entry path, cell-by-cell values, pitfalls and checkpoints
+    prompt:
+      zh: |-
+        给 {{公司全称}} {{属期}} 的 {{表名，如 增值税小规模主表 / 企业所得税A200000 / 印花税税源 / 财报}} 出一张操作卡。
+        包含：etax 入口路径、要抄进每一格的确切数字、易踩的坑（如财行税先税源采集后合并申报、子目必选、专票不免、"真实责任"4 框打字）、以及提交前的校验点。
+        数字一律取自填报台点格复制，我不放心时先给核对单。
+      en: |-
+        Produce an operation card for {{full company name}} {{period}} {{form, e.g. VAT small-scale main table / A200000 / stamp-duty source / financial report}}.
+        Include the e-Tax entry path, the exact value for every cell, known pitfalls, and pre-submission checkpoints. Numbers come from the fill-bench copy.

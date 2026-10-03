@@ -1,0 +1,12 @@
+# OS / editor junk
+.DS_Store
+Thumbs.db
+desktop.ini
+*.swp
+*~
+
+# 本地账套数据（切勿提交到公开仓库）
+data_*.json
+.skill-linked
+.etax_profile/
+_etax_*/
