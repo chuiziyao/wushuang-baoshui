@@ -2,9 +2,9 @@
 name: wushuang-baoshui
 name_en: Wushuang Auto Tax Filing
 name_zh: 无双报税自动版
-description: Automated quarterly tax-filing companion for Zhejiang small-scale taxpayers, paired with the local single-file "Wushuang Tax" app. Chat in natural language to auto-download invoices, build the ledger, and generate VAT / corporate-income / financial / property-behavior / individual-income reports, then produce per-form operation cards; reading is automated while form-filing and submission default to the user's own step-by-step confirmation at the e-Tax bureau. Trigger terms — 开始报税/报税/下载发票/生成财报/填报台/电子税务局操作/无双报税自动版.
-description_en: Automated quarterly tax-filing companion for Zhejiang small-scale taxpayers, paired with the local single-file "Wushuang Tax" app. Chat to auto-download invoices, build the ledger, generate the five filing tables and per-form operation cards; reading is automated while filing and submission stay a manual, user-confirmed lab feature.
-description_zh: 无双报税自动版（浙江·小规模纳税人）。与本地单文件软件「无双报税」联动：用自然语言对话即可自动下载发票、建立账套，生成增值税/企业所得税/财务报表/财行税/个税五表，并逐张产出可核对的「操作卡」，辅助本人在电子税务局完成申报。读取自动、填表提交默认人工；自动报税为实验室功能，须全程盯守并逐笔确认。当前适配浙江省电子税务局小规模按季申报。触发词：开始报税/报税/下载发票/生成财报/填报台/电子税务局操作/无双报税自动版。
+description: 无双报税自动版（浙江·小规模纳税人）季度报税助手：与本地单文件软件「无双报税」联动，用自然语言对话即可自动下载发票、建立账套、生成增值税、企业所得税、财务报表、财行税、个税五表，并逐张产出可核对的操作卡，更有实验室级自动化报税功能体验。读取自动、填表提交默认人工；自动报税为实验室功能，须全程盯守并逐笔确认。当前适配浙江省电子税务局小规模按季申报。触发词：开始报税/报税/下载发票/生成财报/填报台/电子税务局操作/无双报税自动版。
+description_en: Automated quarterly tax-filing companion for Zhejiang small-scale taxpayers, paired with the local single-file "Wushuang Tax" app. Chat to auto-download invoices, build the ledger, generate the five filing tables and per-form operation cards, with a lab-grade automated filing experience; reading is automated while filing and submission stay a manual, user-confirmed lab feature.
+description_zh: 无双报税自动版（浙江·小规模纳税人）季度报税助手：与本地单文件软件「无双报税」联动，用自然语言对话即可自动下载发票、建立账套、生成增值税、企业所得税、财务报表、财行税、个税五表，并逐张产出可核对的操作卡，更有实验室级自动化报税功能体验。读取自动、填表提交默认人工；自动报税为实验室功能，须全程盯守并逐笔确认。当前适配浙江省电子税务局小规模按季申报。触发词：开始报税/报税/下载发票/生成财报/填报台/电子税务局操作/无双报税自动版。
 argument-hint: 说「开始报税」并指定公司，或「下载发票 / 生成财报」
 argument-hint-en: Say 「开始报税」 and name the company, or 「下载发票 / 生成财报」
 argument-hint-zh: 说「开始报税」并指定公司，或「下载发票 / 生成财报」
